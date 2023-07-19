@@ -28,22 +28,11 @@ class WerknemerControllerTest extends AbstractTransactionalJUnit4SpringContextTe
         return jdbcTemplate.queryForObject("select id from werknemers where voornaam = 'test1'", Long.class);
     }
 
-//    @Test
-//    void findall() throws Exception {
-//        mockMvc.perform(get("/werknemers"))
-//                .andExpectAll(
-//                        status().isOk(),
-//                        jsonPath("length()").value(countRowsInTable(WERKNEMERS)));
-//    }
     @Test
-    void findAllFilms() throws Exception {
-        mockMvc.perform(get("/werknemers")).andExpectAll(
-                status().isOk(),
-                jsonPath("length()").value(
-                        countRowsInTable(WERKNEMERS)));
+    void findall() throws Exception {
+        mockMvc.perform(get("/werknemers"))
+                .andExpectAll(
+                        status().isOk(),
+                        jsonPath("length()").value(countRowsInTable(WERKNEMERS)));
     }
-
-//    @Test
-//    void findById() throws Exception {
-//    }
 }
