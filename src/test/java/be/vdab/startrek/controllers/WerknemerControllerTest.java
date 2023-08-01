@@ -35,4 +35,20 @@ class WerknemerControllerTest extends AbstractTransactionalJUnit4SpringContextTe
                         status().isOk(),
                         jsonPath("length()").value(countRowsInTable(WERKNEMERS)));
     }
+
+    @Test
+    void findById() throws Exception {
+        var id = idVanTest1Werknemer();
+        mockMvc.perform(get("/werknemers/{id}", id))
+                .andExpectAll(
+                        status().isOk(),
+                        jsonPath("id").value(id),
+                        jsonPath("voornaam").value("test1"));
+    }
+
+    @Test
+    void findByIdThrowsExceptionBijOnbestaandeWerknemer() throws Exception {
+        mockMvc.perform(get("/werknemers/{id}", Long.MAX_VALUE))
+                .andExpect(status().isNotFound());
+    }
 }

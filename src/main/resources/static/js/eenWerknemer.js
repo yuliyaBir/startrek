@@ -17,7 +17,9 @@ async function findById(id) {
     if (response.ok) {
         const werknemer = await response.json();
         console.log(response);
-        setText("naam", `${werknemer.voornaam} ${werknemer.familienaam}`);
+        const werknemerNaam = `${werknemer.voornaam} ${werknemer.familienaam}`;
+        setText("naam", werknemerNaam);
+        sessionStorage.setItem("werknemerNaam", werknemerNaam);
         const imgFoto = byId("foto");
         imgFoto.alt = naam;
         imgFoto.src = `images/${werknemer.id}.jpg`;

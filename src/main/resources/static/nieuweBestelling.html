@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nieuwe bestelling</title>
+    <script src="js/nieuweBestelling.js" type="module" refer></script>
+    <link rel="stylesheet" href="css/startrek.css">
+    <link rel="icon" href="images/startrek.ico" type="image/x-icon">
+</head>
+<body>
+<h1>Bestelling voor <span id="werknemerTitel"></span></h1>
+<label>Omscrijving
+    <span id="omschrijvingFout" class="fout" hidden>Omschrijving is verplicht</span>
+    <input id="omschrijving" type="text" required autofocus>
+</label>
+<label>Bedrag
+    <span id="bedragFout" class="fout" hidden>Bedrag is verplicht</span>
+    <input id="bedrag" type="number" step="0.01" required>
+</label>
+<button id="bestel">Bestel</button>
+<div><a id="werknemerLink" href="eenWerknemer.html"></a></div>
+<div id="onvoldoendeBudget" class="fout" hidden></div>
+<div id="storing" class="fout" hidden>Storing, contacteer helpdesk</div>
+</body>
+</html>
